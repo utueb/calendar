@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Looking for a convenient way to keep track of your schedule? Look no further than our versatile calendar! With our easy-to-use interface, you can quickly input your upcoming events and appointments, set reminders, and stay organized with just a few clicks. Plus, our customizable options let you personalize your calendar to fit your unique needs. Whether you're managing a busy work schedule or simply trying to stay on top of your daily reminders, our calendar has got you covered. Try it out today and discover the stress-free way to stay on top of your schedule!"
+    />
+    <title>Calendar</title>
+    <link rel="shortcut icon" href="icon.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="calendar.css" />
+  </head>
+  <body>
+    <div class="calendar">
+      <header id="header">
+        <div id="month-section">
+          <button id="previous-month" class="month-btn">◄</button>
+          <input type="month" name="month" id="month" placeholder="-" />
+          <button id="next-month" class="month-btn">►</button>
+        </div>
+
+        <div id="theme-section">
+          <div id="current-theme" class="theme"></div>
+          <ul id="available-themes">
+            <!-- lightmode -->
+            <li>
+              <div class="theme theme-light" data-theme="light, 0-0-0"></div>
+            </li>
+            <li>
+              <div class="theme theme-light" data-theme="light, 0-90-255"></div>
+            </li>
+            <li>
+              <div
+                class="theme theme-light"
+                data-theme="light, 0-200-120"
+              ></div>
+            </li>
+            <li>
+              <div class="theme theme-light" data-theme="light, 80-200-0"></div>
+            </li>
+            <li>
+              <div
+                class="theme theme-light"
+                data-theme="light, 110-30-255"
+              ></div>
+            </li>
+            <li>
+              <div
+                class="theme theme-light"
+                data-theme="light, 128-24-24"
+              ></div>
+            </li>
+            <li>
+              <div
+                class="theme theme-light"
+                data-theme="light, 255-0-100"
+              ></div>
+            </li>
+            <li>
+              <div
+                class="theme theme-light"
+                data-theme="light, 255-180-0"
+              ></div>
+            </li>
+            <!-- darkmode -->
+            <li>
+              <div class="theme theme-dark" data-theme="dark, 62-149-205"></div>
+            </li>
+            <li>
+              <div class="theme theme-dark" data-theme="dark, 78-168-9"></div>
+            </li>
+            <li>
+              <div class="theme theme-dark" data-theme="dark, 86-166-88"></div>
+            </li>
+            <li>
+              <div
+                class="theme theme-dark"
+                data-theme="dark, 107-124-147"
+              ></div>
+            </li>
+            <li>
+              <div
+                class="theme theme-dark"
+                data-theme="dark, 147-122-219"
+              ></div>
+            </li>
+            <li>
+              <div class="theme theme-dark" data-theme="dark, 181-81-179"></div>
+            </li>
+            <li>
+              <div class="theme theme-dark" data-theme="dark, 242-97-97"></div>
+            </li>
+            <li>
+              <div class="theme theme-dark" data-theme="dark, 255-205-87"></div>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div id="weekday-list">
+        <ul>
+          <li>Mon</li>
+          <li>Tue</li>
+          <li>Wed</li>
+          <li>Thu</li>
+          <li>Fri</li>
+          <li>Sat</li>
+          <li class="sunday">Sun</li>
+        </ul>
+      </div>
+      <div id="week-number">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="days">
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date sunday"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date sunday"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date sunday"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date sunday"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date"></div>
+        <div class="date sunday"></div>
+      </div>
+    </div>
+
+    <div id="reminder-container">
+      <h2>reminders</h2>
+      <div id="reminders-list">
+        <button>reminder <span>time</span></button>
+        <button>reminder <span>time</span></button>
+      </div>
+      <button id="add-reminder">add reminder</button>
+
+      <div id="reminder-viewing-container">
+        <div id="reminder-action-btns">
+          <button id="reminder-delete">delete</button>
+          <button id="reminder-close">close</button>
+        </div>
+        <h3 id="reminder-title">title</h3>
+        <div id="additional-reminder-info">
+          <p id="reminder-location">location</p>
+          <p id="reminder-time">time:4:34</p>
+        </div>
+        <p id="reminder-description">description</p>
+      </div>
+      <div id="reminder-creating-container">
+        <h3>add reminder</h3>
+        <input
+          type="text"
+          placeholder="title"
+          required
+          id="create-reminder-title-input"
+        />
+        <span
+          ><input
+            type="text"
+            placeholder="location"
+            id="create-reminder-location-input"
+          />
+          <input
+            type="time"
+            name="time"
+            id="create-reminder-time-input"
+            required
+          />
+        </span>
+
+        <label for="create-reminder-description-input">description:</label>
+        <textarea
+          name="description"
+          id="create-reminder-description-input"
+          cols="30"
+          rows="10"
+          required
+          placeholder="description"
+        ></textarea>
+
+        <div>
+          <button id="reminder-create-btn-cancel">cancel</button
+          ><button type="submit" id="reminder-create-btn-add">add</button>
+        </div>
+      </div>
+    </div>
+
+    <audio controls id="notify-reminder-audio">
+      <source src="alert.mp3" type="audio/mp3" />
+    </audio>
+
+    <div id="notify">
+      <h1 id="notify-title">HEADING</h1>
+      <h3 id="notify-location">location</h3>
+      <p id="notify-description">description</p>
+
+      <button id="close-notification">close</button>
+    </div>
+
+    <script src="reminders-list.js"></script>
+    <script src="calendar.js"></script>
+    <script src="reminder.js"></script>
+  </body>
+</html>

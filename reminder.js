@@ -10,7 +10,7 @@ document.getElementById("days").addEventListener("click", function (e) {
     return clearreminderContainer();
 
   clickedDay = e.target.querySelector(".calendar-entry").innerHTML;
-  reminderContainer.style.display = "block";
+  reminderContainer.classList.remove("reminder-container-hidden");
   for (const reminder of remindersThisMonth) {
     if (reminder.date.day == clickedDay) {
       const btn = document.createElement("BUTTON");
@@ -29,6 +29,7 @@ document.getElementById("days").addEventListener("click", function (e) {
 //get info of the reminder
 
 remindersList.addEventListener("click", function (e) {
+  if (e.target == remindersList) return;
   document.getElementById("reminder-viewing-container").style.display = "flex";
 
   const index = e.target.closest("button").dataset.reminderIndex;
@@ -61,7 +62,9 @@ function deletereminder() {
   selectedreminder[0].remove();
   selectedreminder = undefined;
 
-  const indexOfreminderOverall = getElementByMonthAndIndex(indexOfreminderThisMonth);
+  const indexOfreminderOverall = getElementByMonthAndIndex(
+    indexOfreminderThisMonth
+  );
 
   reminders.splice(indexOfreminderOverall, 1);
 
@@ -71,13 +74,17 @@ function deletereminder() {
 }
 
 document.getElementById("add-reminder").addEventListener("click", function (e) {
-  document.getElementById("reminder-creating-container").style.display = "flex";
+  document.getElementById("reminder-creating-container").style.display = "grid";
 });
 
-const reminderCreationCloseBtn = document.getElementById("reminder-create-btn-cancel");
+const reminderCreationCloseBtn = document.getElementById(
+  "reminder-create-btn-cancel"
+);
 
 reminderCreationCloseBtn.addEventListener("click", closereminderCreation);
-const reminderCreationAddBtn = document.getElementById("reminder-create-btn-add");
+const reminderCreationAddBtn = document.getElementById(
+  "reminder-create-btn-add"
+);
 
 reminderCreationAddBtn.addEventListener("click", addreminder);
 
@@ -132,3 +139,5 @@ function addreminder(e) {
     renderCalendarForMonth(year, month);
   }
 }
+
+alert("sometimes weekindexes are not accurate");

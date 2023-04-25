@@ -26,6 +26,7 @@ if (theme) {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
+  resizeElements();
   document.querySelectorAll(".theme:not(#current-theme)").forEach((theme) => {
     const themeData = theme.dataset.theme.split(",");
     const [r, g, b] = themeData[1].split("-");
@@ -50,7 +51,7 @@ document
       root.setProperty("--B-value", b);
       localStorage.setItem("theme", JSON.stringify([brightness, r, g, b]));
 
-      currentTheme.style.border = `solid 8px rgb(${r},${g},${b})`;
+      currentTheme.style.borderColor = `rgb(${r},${g},${b})`;
 
       if (brightness == "light") {
         currentTheme.style.background = "white";
@@ -98,7 +99,7 @@ function getElementByMonthAndIndex(index) {
 
 //hide and clear reminder container
 function clearreminderContainer() {
-  reminderContainer.style.display = "none";
+  reminderContainer.classList.add("reminder-container-hidden");
   const remindersList = document.querySelector("#reminders-list");
   remindersList.innerHTML = "";
 }
@@ -146,6 +147,13 @@ function dayOfWeekIndex(date) {
   ].indexOf(dayOfWeek.toLowerCase());
 
   return dayIndex;
+}
+
+//get week index
+function getWeekIndex(year, month, day) {
+  month += 1;
+  const date = moment(`${year}-${month}-${day}`, "YYYY-MM-DD");
+  return date.isoWeek();
 }
 
 //if there were days that couldnt be displayed last month, will be displayed this month
@@ -234,7 +242,10 @@ function renderCalendarForMonth(year, month) {
     dayElem.innerText = day;
 
     if (dayOfWeekIndexValue == 0 && day != 1) week++;
-    if (week == 5 && dayOfWeekIndexValue == 0) return;
+    if (week == 5 && dayOfWeekIndexValue == 0) break;
+
+    document.querySelectorAll("#week-number div")[week].innerHTML =
+      getWeekIndex(year, month, day);
 
     let selectedDateBox =
       document.querySelectorAll(".date")[week * 7 + dayOfWeekIndexValue];
@@ -278,15 +289,24 @@ function renderCalendarForMonth(year, month) {
     }
   }
 
-  const firstDayOfMonth = new Date(year, month, 1);
-  const firstDayOfYear = new Date(year, 0, 1);
-  const diffMilliseconds = firstDayOfMonth.getTime() - firstDayOfYear.getTime();
-  const weekNumber = Math.ceil(diffMilliseconds / (1000 * 60 * 60 * 24 * 7));
-
-  const weekNumberDiv = document.querySelectorAll("#week-number div");
-  for (let i = 0; i < 5; i++) {
-    weekNumberDiv[i].innerHTML = weekNumber + i;
-  }
+  // const firstDayOfMonth = new Date(year, month, 1);
+  // const firstDayOfYear = new Date(year, 0, 1);
+  // const diffDays = Math.round(
+  //   (firstDayOfMonth - firstDayOfYear) / (1000 * 60 * 60 * 24)
+  // );
+  // const weekNumber = Math.ceil(
+  //   (diffDays - ((firstDayOfMonth.getDay() + 6) % 7) + 1) / 7
+  // );
+  // const weekNumberDiv = document.querySelectorAll("#week-number div");
+  // for (let i = 0; i < 5; i++) {
+  //   const currentWeekNumber = weekNumber + i;
+  //   if (currentWeekNumber === 0) {
+  //     weekNumberDiv[i].innerHTML =
+  //       year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0) ? 53 : 52;
+  //   } else {
+  //     weekNumberDiv[i].innerHTML = currentWeekNumber;
+  //   }
+  // }
 
   const daysFromLastMonth = renderLastMonth(year, month);
 
@@ -345,7 +365,7 @@ document.querySelectorAll(".month-btn").forEach((btn) =>
 document.getElementById("month").addEventListener("change", function (e) {
   const time = e.target.value.split("-");
   year = time[0];
-  month = time[1];
+  month = time[1] - 1;
 
   monthInput.value = `${Number(year).toString().padStart(4, "0")}-${Number(
     month
@@ -361,3 +381,55 @@ renderCalendarForMonth(year, month);
 window.addEventListener("beforeunload", function (event) {
   localStorage.setItem("calendar", JSON.stringify(reminders));
 });
+
+// resize
+const calendar = document.querySelector(".calendar");
+
+// const calendarAspectRatio = calendar.offsetWidth / calendar.offsetHeight;
+// const reminderContainerAspectRatio =
+//   reminderContainer.offsetWidth / reminderContainer.offsetHeight;
+
+const calendarAspectRatio = 2.0417827298050137;
+const reminderContainerAspectRatio = 0.512;
+
+window.addEventListener("resize", resizeElements);
+
+function resizeElements() {
+  const windowAspectRatio = window.innerWidth / window.innerHeight;
+
+  let newCalendarWidth,
+    newCalendarHeight,
+    newReminderContainerWidth,
+    newReminderContainerHeight;
+
+  if (windowAspectRatio > calendarAspectRatio) {
+    // Vertical resize
+    newCalendarHeight = window.innerHeight * 0.8;
+    newCalendarWidth = newCalendarHeight * calendarAspectRatio;
+
+    newReminderContainerHeight = newCalendarHeight;
+    newReminderContainerWidth =
+      newReminderContainerHeight * reminderContainerAspectRatio;
+  } else {
+    // Horizontal resize
+    newCalendarWidth = window.innerWidth * 0.8;
+    newCalendarHeight = newCalendarWidth / calendarAspectRatio;
+
+    newReminderContainerWidth =
+      newCalendarHeight * reminderContainerAspectRatio;
+    newReminderContainerHeight =
+      newReminderContainerWidth / reminderContainerAspectRatio;
+  }
+
+  if (newReminderContainerHeight > window.innerHeight * 0.8) {
+    newReminderContainerHeight = window.innerHeight * 0.8;
+    newReminderContainerWidth =
+      newReminderContainerHeight * reminderContainerAspectRatio;
+  }
+
+  calendar.style.width = newCalendarWidth + "px";
+  calendar.style.height = newCalendarHeight + "px";
+
+  reminderContainer.style.width = newReminderContainerWidth + "px";
+  reminderContainer.style.height = newReminderContainerHeight + "px";
+}

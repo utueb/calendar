@@ -1,0 +1,328 @@
+@media screen and (max-height: 770px) {
+  #theme-section {
+    width: 60px;
+  }
+
+  #current-theme {
+    margin-left: 14px;
+  }
+
+  #available-themes {
+    gap: 3px;
+  }
+
+  .theme {
+    min-width: 32px;
+    height: 32px;
+  }
+
+  .date {
+    padding: 6px 0 0 6px;
+  }
+
+  .reminder-indicator {
+    bottom: 6px;
+    right: 6px;
+  }
+  #reminder-creating-container {
+    padding: 0 20px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 12fr 3fr;
+  }
+}
+
+@media screen and (max-height: 650px) {
+  #reminder-action-btns {
+    gap: 8px;
+  }
+
+  #reminder-action-btns button {
+    width: 30%;
+  }
+  .reminder-indicator {
+    bottom: 0px;
+    right: 0px;
+    border-radius: 0px;
+    width: 100%;
+    height: 67%;
+  }
+  #reminder-container {
+    grid-template-rows: 1fr 14fr 3fr;
+  }
+  #add-reminder {
+    margin: 0 10%;
+  }
+}
+
+@media screen and (max-height: 630px) {
+  .calendar-entry,
+  .reminder-indicator {
+    font-size: 13px;
+  }
+
+  #reminders-list > button {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+@media screen and (max-height: 570px) {
+  #theme-section {
+    height: 38px;
+    width: 46px;
+  }
+
+  #current-theme {
+    margin-left: 7px;
+  }
+
+  .reminder-indicator {
+    color: transparent;
+    width: 70%;
+    border-top: 1px solid rgba(var(--theme-text-border), 1);
+    border-left: 1px solid rgba(var(--theme-text-border), 1);
+  }
+  #month-section {
+    width: unset;
+  }
+
+  .month-btn {
+    height: 36px;
+    width: 36px;
+  }
+  #month {
+    height: 36px;
+  }
+
+  #reminder-viewing-container h3,
+  #reminder-creating-container h3 {
+    font-size: 24px;
+    margin-top: 36px;
+    padding-left: 15px;
+  }
+
+  #create-reminder-title-input {
+    height: 32px;
+    margin: 4px 0px;
+  }
+
+  #reminder-creating-container span {
+    height: 32px;
+  }
+
+  #reminder-creating-container label {
+    margin: 4px 0px;
+  }
+
+  #reminder-container {
+    grid-template-rows: 1fr 15fr 4fr;
+  }
+
+  #reminder-creating-container {
+    grid-template-rows: 1fr 1fr 1fr 1fr 10fr 4fr;
+  }
+
+  #reminder-creating-container div:not(#textarea-container) {
+    padding: 0 6px;
+  }
+
+  #reminder-creating-container div button {
+    width: calc(50% - 4px);
+    margin: 0 2px;
+  }
+  #reminders-list > button {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  #header {
+    padding: 10px 0px;
+  }
+  .theme {
+    min-width: 28px;
+    height: 28px;
+  }
+  #reminder-container h2 {
+    margin: 0 auto;
+  }
+  #reminder-container {
+    grid-template-rows: 1fr 15fr 5fr;
+  }
+}
+
+@media screen and (max-height: 470px) {
+  #reminder-creating-container div:not(#textarea-container) {
+    height: 30px;
+  }
+  #reminder-creating-container div button {
+    font-size: 14px;
+  }
+  #reminder-action-btns button {
+    width: 40%;
+  }
+}
+
+@media screen and (max-height: 440px) {
+  #reminder-container {
+    grid-template-rows: 1fr 15fr 6fr;
+  }
+  #reminder-viewing-container h3,
+  #reminder-creating-container h3 {
+    font-size: 21px;
+    margin-top: 28px;
+    padding-left: 14px;
+  }
+}
+
+@media screen and (max-height: 380px) {
+  .calendar {
+    min-width: 1207.74px !important;
+    min-height: 304px !important;
+  }
+
+  #weekday-list li {
+    min-height: 25px;
+  }
+
+  #reminder-container {
+    grid-template-rows: 1fr 15fr 7fr;
+    width: 379.699px !important;
+  }
+  #add-reminder {
+    bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1750px) {
+  .reminder-indicator {
+    bottom: 5px;
+    right: 5px;
+  }
+}
+
+@media screen and (max-width: 1520px) {
+  .calendar-entry {
+    font-size: 14px;
+  }
+  .reminder-indicator {
+    bottom: 0px;
+    right: 0px;
+    border-radius: 0px;
+    width: 100%;
+  }
+  #reminder-creating-container {
+    grid-template-rows: 1fr 1fr 1fr 1fr 12fr 3fr;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  #theme-section {
+    width: 60px;
+  }
+
+  #current-theme {
+    margin-left: 14px;
+  }
+
+  #available-themes {
+    gap: 3px;
+  }
+
+  .theme {
+    min-width: 32px;
+    height: 32px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  #theme-section {
+    width: 48px;
+  }
+
+  #current-theme {
+    margin-left: 12px;
+  }
+
+  #available-themes {
+    gap: 2px;
+  }
+
+  #current-theme,
+  .theme {
+    min-width: 24px;
+    height: 24px;
+    border: 5px solid;
+  }
+
+  .reminder-indicator {
+    width: 70%;
+    border-top: 1px solid rgba(var(--theme-text-border), 1);
+    border-left: 1px solid rgba(var(--theme-text-border), 1);
+    color: transparent;
+  }
+  #reminder-creating-container {
+    grid-template-rows: 1fr 1fr 1fr 1fr 11fr 4fr;
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  #theme-section {
+    height: 36px;
+  }
+
+  #month-section {
+    width: 238px;
+  }
+
+  #month {
+    height: 36px;
+  }
+  .month-btn {
+    width: 36px;
+    height: 36px;
+  }
+  #reminder-creating-container {
+    grid-template-rows: 1fr 1fr 1fr 1fr 11fr 5fr;
+  }
+  #reminder-creating-container div:not(#textarea-container) {
+    padding: 0 8px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .theme {
+    height: 16px;
+  }
+
+  #available-themes {
+    flex-wrap: wrap;
+  }
+  #theme-section {
+    height: 40px;
+    padding: 4px 0px;
+    margin: 6px 0px;
+  }
+  .theme-active:not(.theme) {
+    width: 279px !important;
+  }
+  .reminder-indicator {
+    width: 60%;
+    height: 100%;
+    border-top: unset;
+  }
+  #reminder-container button,
+  #notify button {
+    min-height: 40px;
+  }
+
+  #reminder-viewing-container h3,
+  #reminder-creating-container h3 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  #reminders-list > button {
+    height: 40px;
+    grid-template-columns: 4fr 2fr;
+  }
+}
+
+/* @media screen and (max-width: 800px) {minimum width for now!} */

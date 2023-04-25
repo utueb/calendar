@@ -11,6 +11,7 @@
     <title>Calendar</title>
     <link rel="shortcut icon" href="icon.webp" type="image/x-icon" />
     <link rel="stylesheet" href="calendar.css" />
+    <link rel="stylesheet" href="queries.css" />
   </head>
   <body>
     <div class="calendar">
@@ -198,14 +199,16 @@
         </span>
 
         <label for="create-reminder-description-input">description:</label>
-        <textarea
-          name="description"
-          id="create-reminder-description-input"
-          cols="30"
-          rows="10"
-          required
-          placeholder="description"
-        ></textarea>
+        <div id="textarea-container">
+          <textarea
+            name="description"
+            id="create-reminder-description-input"
+            cols="30"
+            rows="10"
+            required
+            placeholder="description"
+          ></textarea>
+        </div>
 
         <div>
           <button id="reminder-create-btn-cancel">cancel</button
@@ -226,6 +229,7 @@
       <button id="close-notification">close</button>
     </div>
 
+    <script src="lib/moment/moment.min.js"></script>
     <script src="reminders-list.js"></script>
     <script src="calendar.js"></script>
     <script src="reminder.js"></script>

@@ -37,7 +37,7 @@ function createreminderDate(reminder) {
 }
 
 function notify() {
-  notifyEL.style.display = "block";
+  notifyEL.style.display = "grid";
   notifyTitle.innerHTML = reminders[0].date.reminder.title;
   notifyLocation.innerHTML = reminders[0].date.reminder.location;
   notifyDescription.innerHTML = reminders[0].date.reminder.description;

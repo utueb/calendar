@@ -185,6 +185,10 @@ const reminderContainer = document.getElementById("reminder-container");
 
 //display  month
 function renderCalendarForMonth(year, month) {
+  document.querySelector("title").textContent = `Calendar —— ${year}-${month
+    .toString()
+    .padStart(2, "0")}`;
+
   displayedMonth = `${year}-${month}`;
   remindersThisMonth = reminders.filter(
     (reminder) => reminder.month == displayedMonth
@@ -289,25 +293,6 @@ function renderCalendarForMonth(year, month) {
     }
   }
 
-  // const firstDayOfMonth = new Date(year, month, 1);
-  // const firstDayOfYear = new Date(year, 0, 1);
-  // const diffDays = Math.round(
-  //   (firstDayOfMonth - firstDayOfYear) / (1000 * 60 * 60 * 24)
-  // );
-  // const weekNumber = Math.ceil(
-  //   (diffDays - ((firstDayOfMonth.getDay() + 6) % 7) + 1) / 7
-  // );
-  // const weekNumberDiv = document.querySelectorAll("#week-number div");
-  // for (let i = 0; i < 5; i++) {
-  //   const currentWeekNumber = weekNumber + i;
-  //   if (currentWeekNumber === 0) {
-  //     weekNumberDiv[i].innerHTML =
-  //       year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0) ? 53 : 52;
-  //   } else {
-  //     weekNumberDiv[i].innerHTML = currentWeekNumber;
-  //   }
-  // }
-
   const daysFromLastMonth = renderLastMonth(year, month);
 
   let nonEmptyFound = false;
@@ -366,9 +351,8 @@ document.getElementById("month").addEventListener("change", function (e) {
   const time = e.target.value.split("-");
   year = time[0];
   month = time[1] - 1;
-
   monthInput.value = `${Number(year).toString().padStart(4, "0")}-${Number(
-    month
+    month + 1
   )
     .toString()
     .padStart(2, "0")}`;

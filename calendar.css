@@ -377,6 +377,8 @@ li {
   position: absolute;
   top: 0px;
   z-index: 1;
+  width: 100%;
+  height: 100%;
   background-color: rgba(var(--theme-background));
   display: flex;
   flex-direction: column;
@@ -559,6 +561,7 @@ li {
   box-shadow: 0px 0px 10px 5px rgb(0 0 0 / 25%);
   background-color: rgba(var(--theme-background), 1);
   padding: 20px;
+  grid-template-rows: 2fr 2fr 13fr 2fr;
   display: none;
 }
 
@@ -575,10 +578,11 @@ li {
 }
 #notify h3 {
   color: var(--text);
+  padding-top: 10px;
 }
 
 #notify p {
-  height: 540px;
+  height: 100%;
   padding: 8px;
   margin: 12px 0px;
   border-radius: 12px;
@@ -589,7 +593,7 @@ li {
 
 #notify button {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   width: 40%;
   left: 50%;
   transform: translateX(-50%);

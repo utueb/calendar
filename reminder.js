@@ -139,5 +139,3 @@ function addreminder(e) {
     renderCalendarForMonth(year, month);
   }
 }
-
-alert("sometimes weekindexes are not accurate");

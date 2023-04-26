@@ -1,3 +1,9 @@
+@media screen and (max-height: 870px) {
+  #notify {
+    height: 90%;
+  }
+}
+
 @media screen and (max-height: 770px) {
   #theme-section {
     width: 60px;
@@ -28,6 +34,15 @@
     padding: 0 20px;
     grid-template-rows: 1fr 1fr 1fr 1fr 12fr 3fr;
   }
+  #notify {
+    grid-template-rows: 2fr 2fr 15fr 3fr;
+  }
+}
+
+@media screen and (max-height: 720px) {
+  #notify {
+    grid-template-rows: 2fr 2fr 10fr 3fr;
+  }
 }
 
 @media screen and (max-height: 650px) {
@@ -43,7 +58,7 @@
     right: 0px;
     border-radius: 0px;
     width: 100%;
-    height: 67%;
+    height: 60%;
   }
   #reminder-container {
     grid-template-rows: 1fr 14fr 3fr;
@@ -61,6 +76,20 @@
 
   #reminders-list > button {
     grid-template-columns: 3fr 1fr;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .theme {
+    min-width: 24px;
+    height: 24px;
+    border: 4px solid;
+  }
+  #theme-section {
+    width: 48px;
+  }
+  #current-theme {
+    margin-left: 12px;
   }
 }
 
@@ -131,21 +160,56 @@
   #reminders-list > button {
     grid-template-columns: 3fr 2fr;
   }
+  #notify {
+    grid-template-rows: 2fr 2fr 10fr 3fr;
+  }
+}
+
+@media screen and (max-height: 550px) {
+  #notify {
+    grid-template-rows: 3fr 3fr 10fr 3fr;
+  }
 }
 
 @media screen and (max-height: 500px) {
   #header {
     padding: 10px 0px;
   }
-  .theme {
-    min-width: 28px;
-    height: 28px;
+  #available-themes {
+    flex-wrap: wrap;
+    align-content: center;
   }
+  #theme-section {
+    height: 38px;
+    width: 38px;
+  }
+
+  #current-theme {
+    min-width: 24px !important;
+    height: 24px !important;
+    border: 5px solid !important;
+  }
+  #reminder-creating-container div:not(#textarea-container) {
+    padding: 0px;
+  }
+
+  .theme {
+    height: 15px !important;
+    min-width: 24px !important;
+  }
+  .theme-active:not(.theme) {
+    width: 290px !important;
+  }
+
   #reminder-container h2 {
     margin: 0 auto;
   }
   #reminder-container {
     grid-template-rows: 1fr 15fr 5fr;
+  }
+
+  #notify {
+    grid-template-rows: 3fr 3fr 11fr 4fr;
   }
 }
 
@@ -159,6 +223,10 @@
   #reminder-action-btns button {
     width: 40%;
   }
+
+  #notify {
+    grid-template-rows: 3fr 2fr 10fr 4fr;
+  }
 }
 
 @media screen and (max-height: 440px) {
@@ -171,12 +239,16 @@
     margin-top: 28px;
     padding-left: 14px;
   }
+
+  #notify {
+    grid-template-rows: 3fr 2fr 8fr 4fr;
+  }
 }
 
 @media screen and (max-height: 380px) {
   .calendar {
-    min-width: 1207.74px !important;
-    min-height: 304px !important;
+    min-width: 610px !important;
+    min-height: 300px !important;
   }
 
   #weekday-list li {
@@ -185,7 +257,8 @@
 
   #reminder-container {
     grid-template-rows: 1fr 15fr 7fr;
-    width: 379.699px !important;
+    width: 155px !important;
+    height: 300px !important;
   }
   #add-reminder {
     bottom: 10px;
@@ -194,8 +267,9 @@
 
 @media screen and (max-width: 1750px) {
   .reminder-indicator {
-    bottom: 5px;
-    right: 5px;
+    right: 0px;
+    bottom: 0px;
+    border-bottom-right-radius: 0px;
   }
 }
 
@@ -286,11 +360,16 @@
   #reminder-creating-container div:not(#textarea-container) {
     padding: 0 8px;
   }
+  #notify {
+    width: 90%;
+    height: 90%;
+  }
 }
 
 @media screen and (max-width: 1000px) {
   .theme {
-    height: 16px;
+    height: 12px;
+    border: solid 3px;
   }
 
   #available-themes {
@@ -299,16 +378,16 @@
   #theme-section {
     height: 40px;
     padding: 4px 0px;
-    margin: 6px 0px;
   }
   .theme-active:not(.theme) {
-    width: 279px !important;
+    width: 290px !important;
   }
   .reminder-indicator {
     width: 60%;
     height: 100%;
     border-top: unset;
   }
+
   #reminder-container button,
   #notify button {
     min-height: 40px;
@@ -316,13 +395,241 @@
 
   #reminder-viewing-container h3,
   #reminder-creating-container h3 {
-    font-size: 24px;
-    margin-top: 20px;
+    font-size: 22px;
+    line-height: 0.85;
+    margin-top: 16px;
   }
   #reminders-list > button {
     height: 40px;
     grid-template-columns: 4fr 2fr;
   }
+  #reminder-creating-container div button {
+    font-size: 14px;
+    font-weight: bolder;
+  }
+  #reminder-creating-container {
+    grid-template-rows: 1fr 1fr 1fr 1fr 11fr 6fr;
+  }
 }
 
-/* @media screen and (max-width: 800px) {minimum width for now!} */
+@media screen and (max-width: 810px) {
+  body {
+    padding: 0px;
+  }
+  .calendar {
+    min-width: 615px !important;
+    min-height: 320px !important;
+  }
+  #reminder-container {
+    min-width: 160px !important;
+    min-height: 318px !important;
+  }
+  #theme-section,
+  #month-section,
+  #month,
+  .month-btn {
+    height: 32px;
+  }
+}
+
+@media screen and (max-height: 320px) and (max-width: 1000px) {
+  .reminder-indicator {
+    border-top: 1px solid rgba(var(--theme-text-border), 1);
+  }
+}
+
+@media screen and (max-height: 320px) and (max-width: 1200px) {
+  #theme-section {
+    width: 48px;
+  }
+}
+
+@media screen and (max-height: 320px) and (max-width: 1420px) {
+  #theme-section {
+    width: 52px;
+  }
+}
+
+@media screen and (max-height: 320px) and (max-width: 1520px) {
+  .reminder-indicator {
+    height: 44%;
+  }
+}
+
+@media screen and (max-height: 320px) and (max-width: 1750px) {
+  .reminder-indicator {
+    right: 0px;
+    bottom: 0px;
+  }
+}
+
+@media screen and (max-height: 320px) and (max-width: 1920px) {
+  #reminder-creating-container {
+    grid-template-rows: 1fr 1fr 1fr 1fr 10fr 5fr;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  body:before {
+    content: "mobile";
+    width: 100%;
+    height: 30px;
+    background-color: var(--theme);
+    font-size: 24px;
+    padding-left: 30px;
+    font-weight: bold;
+    position: fixed;
+    top: 0px;
+    box-shadow: inset 0px 0px 14px 8px rgb(0 0 0 / 45%),
+      inset 0px 0px 7px 0px
+        rgba(var(--R-value), var(--G-value), var(--B-value), 75%);
+    text-shadow: 1px 1px 1px rgb(37, 37, 37), -1px -1px 1px rgb(37, 37, 37),
+      -1px 1px 1px rgb(37, 37, 37), 1px -1px 1px rgb(37, 37, 37);
+    color: white;
+  }
+
+  body {
+    flex-direction: column;
+    padding-top: 30px;
+  }
+
+  .calendar,
+  #reminder-container {
+    width: 100% !important;
+  }
+
+  .calendar {
+    flex: 2;
+  }
+
+  #reminder-container {
+    flex: 1;
+  }
+  #notify {
+    display: fixed;
+    top: 0px;
+    border-radius: 0px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .calendar,
+  #reminder-container {
+    min-height: unset !important;
+    min-width: unset !important;
+  }
+  .reminder-indicator {
+    height: 50%;
+    border-top: 1px solid rgba(var(--theme-text-border), 1);
+  }
+  #reminder-viewing-container h3,
+  #reminder-creating-container h3 {
+    margin-top: 6px;
+  }
+  #reminder-creating-container {
+    grid-template-rows: 1fr 1fr 1fr 1fr 7fr 3fr;
+  }
+  #reminder-creating-container div button {
+    font-size: 13px;
+  }
+  #reminder-creating-container label {
+    font-size: 16px;
+    margin: 4px 0px;
+  }
+  #reminder-creating-container div:not(#textarea-container) {
+    height: 30px;
+  }
+  #reminder-creating-container span {
+    height: 30px;
+  }
+  #create-reminder-title-input {
+    margin: 4px 0px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #weekday-list li {
+    font-size: 16px;
+    padding: 0px 2px;
+  }
+  #week-number div {
+    font-size: 16px;
+    padding: 8px 0 0 4px;
+  }
+
+  #header:has(#theme-section.theme-active) {
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 5;
+  }
+
+  #theme-section.theme-active {
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0px;
+    z-index: 5;
+    gap: 0px;
+    padding: 0px;
+    flex-direction: column;
+  }
+  #theme-section.theme-active #current-theme {
+    min-width: 48px;
+    min-height: 48px;
+    width: 48px;
+    height: 48px;
+    margin: 10px 0px;
+  }
+
+  #available-themes {
+    gap: 10px;
+    flex-direction: column;
+    padding: 20px;
+    border: none;
+    width: 100%;
+    overflow: hidden;
+    align-items: stretch;
+  }
+
+  #available-themes li {
+    flex-basis: 20%;
+    flex-grow: 1;
+  }
+  .theme {
+    width: 130px;
+    height: 160px;
+    width: 100%;
+    height: 100%;
+    border: 10px solid;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #theme-section:not(.theme-active) {
+    position: absolute;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #month-section {
+    width: 200px;
+    margin-left: 10px;
+  }
+  .month-btn {
+    width: 24px;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+  #month {
+    width: 152px;
+  }
+
+  #available-themes {
+    gap: 6px;
+  }
+}
